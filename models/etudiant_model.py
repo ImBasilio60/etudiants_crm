@@ -6,11 +6,19 @@ from odoo import models, fields
 class Etudiant(models.Model):
     _name = 'etudiants.etudiant'
     _description = 'Informations Etudiant'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Nom de l'Étudiant", required=True)
     numero_etudiant = fields.Char(string="Numéro d'Étudiant", required=True, copy=False)
     projet_pfe = fields.Char(string="Titre du Projet PFE")
     tuteur_id = fields.Many2one('res.partner', string="Tuteur")
+    attachment_ids = fields.Many2many(
+        comodel_name = 'ir.attachment',
+        relation = 'etudiant_attachment_rel',
+        column1 = 'etudiant_id',
+        column2 = 'attachment_id',
+        string="Attachments"
+    )
 
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
@@ -43,6 +51,7 @@ class CrmLead(models.Model):
 class Stage(models.Model):
     _name = 'etudiants.stage'
     _description = 'Stage Stage'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Titre du stage", required=True)
     etudiant_id = fields.Many2one('etudiants.etudiant', string="Étudiant", required=True)
@@ -56,4 +65,11 @@ class Stage(models.Model):
         ('terminee', 'Terminé'),
         ('annule', 'Annulé'),
     ], string="Statut", default="draft")
+    attachment_ids = fields.Many2many(
+        comodel_name = 'ir.attachment',
+        relation = 'stage_attachment_rel',
+        column1 = 'stage_id',
+        column2 = 'attachment_id',
+        string='Attachments'
+    )
 

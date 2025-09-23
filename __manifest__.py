@@ -10,7 +10,7 @@
     'author': "Basilio, Luca",
     'category': 'Sales/CRM',
     'version': '18.0.1.0.0',
-    'depends': ['base', 'crm'],
+    'depends': ['base', 'crm', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/etudiant_views.xml',
