@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_etudiant_tree" model="ir.ui.view">
+        <field name="name">etudiants.etudiant.tree</field>
+        <field name="model">etudiants.etudiant</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="numero_etudiant"/>
+                <field name="projet_pfe"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_etudiant_form" model="ir.ui.view">
+        <field name="name">etudiants.etudiant.form</field>
+        <field name="model">etudiants.etudiant</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="numero_etudiant"/>
+                            <field name="projet_pfe"/>
+                        </group>
+                        <group>
+                            <field name="tuteur_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
