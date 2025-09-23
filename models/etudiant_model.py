@@ -1,4 +1,5 @@
 # code ecrit par BASILIO
+from email.policy import default
 
 from odoo import models, fields
 
@@ -38,3 +39,21 @@ class CrmLead(models.Model):
             'views': [(False, 'form')],
             'target': 'current',
         }
+
+class Stage(models.Model):
+    _name = 'etudiants.stage'
+    _description = 'Stage Stage'
+
+    name = fields.Char(string="Titre du stage", required=True)
+    etudiant_id = fields.Many2one('etudiants.etudiant', string="Étudiant", required=True)
+    entreprise_id = fields.Many2one('res.partner', string="Entreprise d'accueil", required=True)
+    date_debut = fields.Date(string="Date de début")
+    date_fin = fields.Date(string="Date de fin")
+    description = fields.Text(string="Description du stage")
+    state = fields.Selection([
+        ('draft', 'Brouillon'),
+        ('en_cours', 'En cours'),
+        ('terminee', 'Terminé'),
+        ('annule', 'Annulé'),
+    ], string="Statut", default="draft")
+
