@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/etudiant_views.xml',
         'views/etudiant_menu.xml',
+        'views/crm_views.xml'
     ],
     'demo': [],
     'installable': True,

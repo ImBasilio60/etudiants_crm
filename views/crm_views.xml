@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="after">
+                <group string="Informations Étudiant">
+                    <field name="numero_etudiant"/>
+                    <field name="projet_pfe"/>
+                    <field name="tuteur_id"/>
+                </group>
+                <group>
+                    <field name="etudiant_id" readonly="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//header" position="before">
+                <button name="action_convertir_en_etudiant"
+                        string="Convertir en Étudiant"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="etudiant_id"
+                        groups="crm.group_crm_user"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
