@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--code ecrit par BASILIO-->
+
 <odoo>
     <record id="view_etudiant_tree" model="ir.ui.view">
         <field name="name">etudiants.etudiant.tree</field>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--code ecrit par BASILIO-->
+
 <odoo>
     <record id="action_etudiants_etudiant" model="ir.actions.act_window">
         <field name="name">Étudiants</field>
