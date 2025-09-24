@@ -35,4 +35,14 @@
             </form>
         </field>
     </record>
+    <record id="action_etudiants" model="ir.actions.act_window">
+        <field name="name">Étudiants</field>
+        <field name="res_model">etudiants.etudiant</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer un nouvel étudiant
+            </p>
+        </field>
+    </record>
 </odoo>
