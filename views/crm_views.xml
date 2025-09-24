@@ -15,7 +15,7 @@
                     <field name="tuteur_id"/>
                 </group>
                 <group>
-                    <field name="etudiant_id" readonly="1"/>
+                    <field name="etudiant_id"/>
                 </group>
             </xpath>
             <xpath expr="//header" position="inside">

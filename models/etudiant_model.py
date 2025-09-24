@@ -29,15 +29,16 @@ class CrmLead(models.Model):
 
     def action_convertir_en_etudiant(self):
         self.ensure_one()
-
-        etudiant = self.env['etudiants.etudiant'].create({
-            'name': self.contact_name,
-            'numero_etudiant': self.numero_etudiant,
-            'projet_pfe': self.projet_pfe,
-            'tuteur_id': self.tuteur_id.id,
-        })
-
-        self.etudiant_id = etudiant.id
+        if self.etudiant_id:
+            etudiant = self.etudiant_id
+        else:
+            etudiant = self.env['etudiants.etudiant'].create({
+                'name': self.contact_name,
+                'numero_etudiant': self.numero_etudiant,
+                'projet_pfe': self.projet_pfe,
+                'tuteur_id': self.tuteur_id.id,
+            })
+            self.etudiant_id = etudiant.id
 
         return {
             'type':'ir.actions.act_window',
