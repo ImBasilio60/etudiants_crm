@@ -17,6 +17,7 @@
         'views/etudiant_menu.xml',
         'views/crm_views.xml',
         'views/stage_views.xml',
+        'views/crm_lead_kanban_views.xml'
     ],
     'demo': [],
     'installable': True,
