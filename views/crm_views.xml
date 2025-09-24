@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!--code ecrit par BASILIO-->
 
 <odoo>
@@ -14,13 +13,13 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+
             <xpath expr="//field[@name='email_from']" position="attributes">
                 <attribute name="string">Email Étudiant</attribute>
             </xpath>
-            <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="numero_etudiant" required="1"/>
-                <field name="projet_pfe" required="1"/>
-                <field name="tuteur_id" required="1"/>
+
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="readonly">1</attribute>
             </xpath>
 
             <xpath expr="//sheet/group" position="after">
