@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!--code ecrit par BASILIO-->
+<!--code ecrit par BASILIO-->S
 
 <odoo>
     <record id="view_crm_lead_form_inherit" model="ir.ui.view">
@@ -8,6 +7,21 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='contact_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='email_from']" position="attributes">
+                <attribute name="string">Email Étudiant</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
             <xpath expr="//sheet/group" position="after">
                 <group string="Informations Étudiant">
                     <field name="numero_etudiant"/>
@@ -18,6 +32,7 @@
                     <field name="etudiant_id"/>
                 </group>
             </xpath>
+
             <xpath expr="//header" position="inside">
                 <field name="etudiant_id" invisible="True"/>
                 <button name="action_convertir_en_etudiant"
