@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--code ecrit par BASILIO-->
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_update_projets_sans_tuteur" model="ir.cron">
+            <field name="name">CRM Étudiant: Mise à jour des projets sans tuteur</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model._mettre_a_jour_projets_sans_tuteur()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

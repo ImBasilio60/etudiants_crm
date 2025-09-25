@@ -49,6 +49,17 @@ class CrmLead(models.Model):
             'target': 'current',
         }
 
+    def _mettre_a_jour_projets_sans_tuteur(self):
+
+        leads_a_mettre_a_jour = self.search([
+            ('tuteur_id', '=', False),
+            ('stage_id.sequence', '<', 2)
+        ])
+        for lead in leads_a_mettre_a_jour:
+            qualification_stage = self.env['crm.stage'].search([('name', '=', 'Qualification')], limit=1)
+            if qualification_stage:
+                lead.stage_id = qualification_stage.id
+
 class Stage(models.Model):
     _name = 'etudiants.stage'
     _description = 'Stage Stage'
