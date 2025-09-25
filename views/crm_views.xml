@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--code ecrit par BASILIO-->S
+<!--code ecrit par BASILIO-->
 
 <odoo>
     <record id="view_crm_lead_form_inherit" model="ir.ui.view">
