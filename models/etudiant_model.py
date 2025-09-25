@@ -2,6 +2,7 @@
 from email.policy import default
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Etudiant(models.Model):
     _name = 'etudiants.etudiant'
@@ -104,4 +105,20 @@ class Stage(models.Model):
         column2 = 'attachment_id',
         string='Attachments'
     )
+
+    @api.constrains('etudiant_id', 'state')
+    def _check_unique_active_stage(self):
+        for stage in self:
+            if stage.state == 'en_cours':
+                active_stages = self.env['etudiants.stage'].search([
+                    ('etudiant_id', '=', stage.etudiant_id.id),
+                    ('state', '=', 'en_cours'),
+                    ('id', '!=', stage.id)
+                ])
+
+                if active_stages:
+                    raise ValidationError(
+                        "L'étudiant '%s' a déjà un autre stage en cours (Stages trouvés : %s). Veuillez le passer à l'état 'Terminé' ou 'Brouillon' avant d'en commencer un nouveau."
+                        % (stage.etudiant_id.name, ", ".join(active_stages.mapped('name')))
+                    )
 
