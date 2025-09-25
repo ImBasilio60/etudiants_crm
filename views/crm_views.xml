@@ -22,6 +22,10 @@
                 <attribute name="readonly">1</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="string">Responsable / Encadrant PFE</attribute>
+            </xpath>
+
             <xpath expr="//sheet/group" position="after">
                 <group string="Informations Étudiant">
                     <field name="numero_etudiant"/>
