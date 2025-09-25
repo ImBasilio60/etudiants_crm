@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--code ecrit par BASILIO-->
 <odoo>
     <data>
         <record id="view_etudiants_stage_kanban" model="ir.ui.view">
@@ -11,10 +10,7 @@
                     <field name="name"/>
                     <field name="etudiant_id"/>
                     <field name="entreprise_id"/>
-                    <field name="tuteur_id"/>
-                    <field name="date_debut"/>
-                    <field name="date_fin"/>
-                    <field name="description"/>
+                    <field name="date_debut"/> <field name="date_fin"/>   <field name="description"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
@@ -23,14 +19,22 @@
                                         <div class="o_kanban_record_title">
                                             <h3><field name="name"/></h3>
                                         </div>
-                                        <div>
-                                            Étudiant: <field name="etudiant_id"/>
+
+                                        <div class="mt-2">
+                                            <span class="oe_kanban_label">Étudiant :</span>
+                                            <field name="etudiant_id"/>
                                         </div>
                                         <div>
-                                            Entreprise: <field name="entreprise_id"/>
+                                            <span class="oe_kanban_label">Entreprise :</span>
+                                            <field name="entreprise_id"/>
                                         </div>
-                                        <div>
-                                            Statut: <field name="state"/>
+
+                                        <div class="o_kanban_record_dates">
+                                            <field name="date_debut" class="oe_inline"/> - <field name="date_fin" class="oe_inline"/>
+                                        </div>
+
+                                        <div class="mt-2 text-end">
+                                            <field name="state" widget="badge"/>
                                         </div>
                                     </div>
                                     <div class="oe_kanban_bottom_right">
