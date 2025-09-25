@@ -18,7 +18,8 @@
         'views/crm_views.xml',
         'views/stage_views.xml',
         'views/crm_lead_kanban_views.xml',
-        'views/crm_data.xml'
+        'views/crm_data.xml',
+        'views/etudiant_search_views.xml',
     ],
     'demo': [],
     'installable': True,

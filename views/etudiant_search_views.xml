@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--code ecrit par BASILIO-->
+<odoo>
+    <record id="view_etudiant_filter" model="ir.ui.view">
+        <field name="name">etudiants.etudiant.search</field>
+        <field name="model">etudiants.etudiant</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher un Étudiant">
+                <field name="name" string="Nom de l'Étudiant"
+                       filter_domain="['|', ('name', 'ilike', self), ('numero_etudiant', 'ilike', self)]"/>
+                <field name="projet_pfe"/>
+                <field name="tuteur_id" filter_domain="[('tuteur_id', 'child_of', self)]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Tuteur" name="group_by_tuteur" context="{'group_by':'tuteur_id'}"/>
+                    <filter string="Projet PFE" name="group_by_projet" context="{'group_by':'projet_pfe'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
