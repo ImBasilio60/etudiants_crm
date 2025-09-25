@@ -7,7 +7,7 @@
         Ce module étend le module CRM d'Odoo pour y ajouter des fonctionnalités
         spécifiques à la gestion des étudiants et de leur cursus.
     """,
-    'author': "Basilio, Luca",
+    'author': "Basilio, Luca IGF-IA/PRO42",
     'category': 'Sales/CRM',
     'version': '18.0.1.0.0',
     'depends': ['base', 'crm', 'mail', 'web', 'sale'],
@@ -28,4 +28,5 @@
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',
+    'icon': '/etudiants_crm/static/images/icon.png',
 }
