@@ -20,6 +20,11 @@
         <field name="model">etudiants.etudiant</field>
         <field name="arch" type="xml">
             <form>
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" name="action_view_stages" type="object" icon="fa-briefcase">
+                        <field name="stage_count" widget="statinfo" string="Stages"/>
+                    </button>
+                </div>
                 <sheet>
                     <group>
                         <group>
