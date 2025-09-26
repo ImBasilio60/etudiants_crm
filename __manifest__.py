@@ -1,12 +1,9 @@
 {
     'name': "CRM pour Étudiants",
     'summary': """
-        Gère les étudiants en tant que opportunités CRM.
+        Gestion des étudiants en tant que opportunités CRM.
     """,
-    'description': """
-        Ce module étend le module CRM d'Odoo pour y ajouter des fonctionnalités
-        spécifiques à la gestion des étudiants et de leur cursus.
-    """,
+    'description': "Ce module complète le CRM d’Odoo en y ajoutant des outils dédiés à la gestion des étudiants et de leur parcours.",
     'author': "Basilio, Luca, Manantsoa IGF-IA/PRO42",
     'category': 'Sales/CRM',
     'version': '18.0.1.0.0',

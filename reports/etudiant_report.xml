@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--code ecrit par BASILIO-->
 <odoo>
     <record id="action_report_etudiant_fiche" model="ir.actions.report">
         <field name="name">Fiche de Stage PFE</field>
