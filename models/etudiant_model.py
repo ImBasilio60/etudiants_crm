@@ -81,6 +81,29 @@ class CrmLead(models.Model):
             if qualification_stage:
                 lead.stage_id = qualification_stage.id
 
+    _sql_constraints = [
+        ('numero_etudiant_unique',
+         'UNIQUE (numero_etudiant)',
+         "Le numéro d'Étudiant doit être unique.")
+    ]
+
+    @api.constrains('numero_etudiant', 'stage_id')
+    def _check_unique_in_progress_opportunity(self):
+        for lead in self:
+            if lead.stage_id.is_won == False and lead.active == True:
+                domain = [
+                    ('id', '!=', lead.id),
+                    ('numero_etudiant', '=', lead.numero_etudiant),
+                    ('active', '=', True),
+                    ('type', '=', 'opportunity')
+                ]
+
+                if self.search_count(domain) > 0:
+                    raise ValidationError(
+                        "Cet Étudiant a déjà un Projet/Stage 'En cours' actif. "
+                        "Vous devez d'abord fermer l'opportunité existante pour en créer une nouvelle."
+                    )
+
 class Stage(models.Model):
     _name = 'etudiants.stage'
     _description = 'Stage Stage'
