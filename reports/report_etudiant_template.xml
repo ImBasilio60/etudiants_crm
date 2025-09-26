@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_etudiant_fiche_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div class="row d-flex justify-content-center align-items-center">
+                                <img t-att-src="'/etudiants_crm/static/images/icon.png'"
+                                     style="max-height: 150px; max-width: 150px;"
+                                     class="img-responsive"/>
+                        </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-xs-12">
+                                <h3>Informations Étudiant</h3>
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td><strong>Numéro d'Étudiant :</strong></td>
+                                        <td><span t-field="o.numero_etudiant"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nom du Stage/Projet :</strong></td>
+                                        <td><span t-field="o.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Titre du Projet PFE :</strong></td>
+                                        <td><span t-field="o.projet_pfe"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Étape Actuelle :</strong></td>
+                                        <td><span t-field="o.stage_id.name"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-xs-12">
+                                <h3>Encadrement</h3>
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td><strong>Encadrant PFE (Interne) :</strong></td>
+                                        <td><span t-field="o.user_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tuteur (Externe) :</strong></td>
+                                        <td><span t-field="o.tuteur_id.name"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

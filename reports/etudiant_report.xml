@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_etudiant_fiche" model="ir.actions.report">
+        <field name="name">Fiche de Stage PFE</field>
+        <field name="model">crm.lead</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">etudiants_crm.report_etudiant_fiche_template</field>
+        <field name="print_report_name">'Fiche_PFE_%s' % object.numero_etudiant</field>
+        <field name="binding_model_id" ref="model_crm_lead"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="crm_lead_view_form_add_report_button" model="ir.ui.view">
+        <field name="name">crm.lead.form.add.report.button</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_report_etudiant_fiche)d"
+                        string="Imprimer la Fiche PFE"
+                        type="action"
+                        class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
